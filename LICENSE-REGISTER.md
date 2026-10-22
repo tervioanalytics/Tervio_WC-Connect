@@ -57,3 +57,15 @@ Headers that point to `license.txt` are now covered by the top-level `LICENSE`.
 2. `git merge-base HEAD upstream/version-16` returned `ab71a15d322232fff58d93fa0aa469812bfa9a30`.
 3. `git rev-parse HEAD`, `origin/version-16`, and `upstream/version-16` are that same hash. `git rev-list --count HEAD ^upstream/version-16` is 0, and the reverse count is 0. `git rev-list HEAD --not --remotes=upstream` is empty, so every commit in this history is already an upstream commit.
 4. The histories are identical, so the merge-base is the upstream `version-16` tip. That commit is an ancestor of `HEAD`. No newer commit on any fetched upstream ref is an ancestor of `HEAD`. `upstream/version-15` (`dc0dda3e16a41a8433556c4eede444761b223803`, 2026-09-29) is newer by date and is not an ancestor of `HEAD`.
+
+## What GPLv3 requires of us
+
+_Wording drafted by Harvey (Legal), October 2026. This is a draft, not legal advice._
+
+1. **Hosting for clients (no copy handed over):** GPLv3 doesn't require us to share source when we only run the software as a service. That changes if any AGPL component is added, so check the licence before adding a dependency.
+2. **Handing over a copy:** this covers installing on a client's servers, giving a client the code, or publishing the repo. We must provide the complete source of the GPLv3 components and our changes to them, licensed under GPLv3, together with the full licence text.
+3. **Notices:** keep every upstream copyright and licence notice. Mark modified files with a statement that we changed them and the date. Add our own copyright line only to files we wrote or changed.
+4. **No extra restrictions:** client contracts, NDAs and support terms must not limit anyone's GPLv3 rights in these components. Our confidentiality and IP clauses cover only Tervio's own separate code and materials.
+5. **No warranty from upstream:** GPLv3 comes without warranty from the upstream authors. Any warranty or support we give clients comes from Tervio alone.
+6. **Licence history:** upstream license.txt read 'License: GNU GPLv3' in May 2023, 'License: Dirk van der Laarse' from Sep 2024, then the full GPLv3 text from Nov 2024, and it was deleted in Feb 2026. At our fork point ab71a15 (27 Aug 2026), README lines 19–23 and hooks.py line 6 state GPLv3, so we treat every upstream file as GPLv3.
+7. **Review:** check this register whenever a dependency is added or a delivery to a client is planned.
