@@ -16,7 +16,7 @@ Register of the licence for the upstream component this repository is built from
 
 ### Source of the licence statement
 
-Read at `ab71a15d322232fff58d93fa0aa469812bfa9a30`. This branch's base (`version-16`) is that commit. This change adds only `LICENSE` and `LICENSE-REGISTER.md`.
+Read at `ab71a15d322232fff58d93fa0aa469812bfa9a30`. At the time of PR #1 the `version-16` base was `ab71a15`, and that change added only `LICENSE` and `LICENSE-REGISTER.md`. The `version-16` tip is now `c7e9c65` (`c7e9c65d4f91231175357319a289349f91ea4cae`).
 
 `README.md`, lines 19–23:
 
@@ -55,17 +55,17 @@ Headers that point to `license.txt` are now covered by the top-level `LICENSE`.
 
 1. Added a local git remote `upstream` for https://github.com/Starktail/woocommerce_fusion and fetched its branches. Upstream's HEAD branch is `version-16`. The remote is local git configuration and is not part of this change.
 2. `git merge-base HEAD upstream/version-16` returned `ab71a15d322232fff58d93fa0aa469812bfa9a30`.
-3. `git rev-parse HEAD`, `origin/version-16`, and `upstream/version-16` are that same hash. `git rev-list --count HEAD ^upstream/version-16` is 0, and the reverse count is 0. `git rev-list HEAD --not --remotes=upstream` is empty, so every commit in this history is already an upstream commit.
-4. The histories are identical, so the merge-base is the upstream `version-16` tip. That commit is an ancestor of `HEAD`. No newer commit on any fetched upstream ref is an ancestor of `HEAD`. `upstream/version-15` (`dc0dda3e16a41a8433556c4eede444761b223803`, 2026-09-29) is newer by date and is not an ancestor of `HEAD`.
+3. At the time of PR #1, `git rev-parse` of `HEAD`, `origin/version-16`, and `upstream/version-16` were `ab71a15` (`ab71a15d322232fff58d93fa0aa469812bfa9a30`). `git rev-list --count HEAD ^upstream/version-16` was 0, and the reverse count was 0. `git rev-list HEAD --not --remotes=upstream` was empty, so every commit in that history was already an upstream commit. The `version-16` tip is now `c7e9c65` (`c7e9c65d4f91231175357319a289349f91ea4cae`).
+4. At the time of PR #1 the histories were identical, so the merge-base was the upstream `version-16` tip, `ab71a15` (`ab71a15d322232fff58d93fa0aa469812bfa9a30`). That commit is an ancestor of the history. No newer commit on any fetched upstream ref was an ancestor of that base. `upstream/version-15` (`dc0dda3e16a41a8433556c4eede444761b223803`, 2026-09-29) is newer by date and is not an ancestor of `ab71a15`. The `version-16` tip is now `c7e9c65` (`c7e9c65d4f91231175357319a289349f91ea4cae`).
 
 ## What GPLv3 requires of us
 
 _Wording drafted by Harvey (Legal), October 2026. This is a draft, not legal advice._
 
 1. **Hosting for clients (no copy handed over):** GPLv3 doesn't require us to share source when we only run the software as a service. That changes if any AGPL component is added, so check the licence before adding a dependency.
-2. **Handing over a copy:** this covers installing on a client's servers, giving a client the code, or publishing the repo. We must provide the complete source of the GPLv3 components and our changes to them, licensed under GPLv3, together with the full licence text.
-3. **Notices:** keep every upstream copyright and licence notice. Mark modified files with a statement that we changed them and the date. Add our own copyright line only to files we wrote or changed.
+2. **Handing over a copy:** this covers installing on a client's servers, giving a client the code, or publishing the repo. We must provide the complete Corresponding Source (GPLv3 sections 1 and 6) of the whole work based on these components, including any of our code that is part of that work, licensed as a whole under GPLv3 (section 5c), together with the full licence text. Only separate, independent works merely aggregated with it (section 5, final paragraph) are excluded. This repository is public on GitHub, so items 2 and 3 apply now.
+3. **Notices:** keep every upstream copyright and licence notice. The modified work must carry prominent notices that we changed it, with a relevant date (section 5a), and a notice that it is released under GPLv3 (section 5b). Our house practice is to put the change notice and date in each file we modify. Add our own copyright line only to files we wrote or changed.
 4. **No extra restrictions:** client contracts, NDAs and support terms must not limit anyone's GPLv3 rights in these components. Our confidentiality and IP clauses cover only Tervio's own separate code and materials.
 5. **No warranty from upstream:** GPLv3 comes without warranty from the upstream authors. Any warranty or support we give clients comes from Tervio alone.
-6. **Licence history:** upstream license.txt read 'License: GNU GPLv3' in May 2023, 'License: Dirk van der Laarse' from Sep 2024, then the full GPLv3 text from Nov 2024, and it was deleted in Feb 2026. At our fork point ab71a15 (27 Aug 2026), README lines 19–23 and hooks.py line 6 state GPLv3, so we treat every upstream file as GPLv3.
+6. **Licence history:** upstream `license.txt` read 'License: GNU GPLv3' in May 2023, 'License: Dirk van der Laarse' from Sep 2024, then the full GPLv3 text from Nov 2024, and it was deleted in Feb 2026. At our fork point `ab71a15` (27 Aug 2026), `README.md` lines 19–23 and `hooks.py` line 6 state GPLv3, so we treat every upstream file as GPLv3.
 7. **Review:** check this register whenever a dependency is added or a delivery to a client is planned.
